@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-lg col-sm col-md col-lg-10">
+    <h3>Cadastrar Produto</h3>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="prodForm" novalidate>
+          <div class="form-group">
+            <label class="col-md-4">Nome</label>
+            <input type="text" class="form-control" formControlName="nome" #nome/>
+          </div>
+          <div *ngIf="prodForm.controls['nome'].invalid && (prodForm.controls['nome'].dirty || prodForm.controls['nome'].touched) " class="alert alert-danger">Campo Obrigatorio</div>
+          <div class="form-group">
+            <label class="col-md-4">Preço</label>
+            <input type="number" class="form-control" formControlName="preco" #preco />
+          </div>
+          <div *ngIf="prodForm.controls['preco'].invalid &&(prodForm.controls['preco'].dirty || prodForm.controls['preco'].touched)" class="alert alert-danger">Campo Obrigatorio</div>
+          <div class="form-group">
+            <label class="col-md-4">Quantidade</label>
+            <input type="number" class="form-control" formControlName= "quantidade" #quantidade/>
+          </div>
+          <div *ngIf="prodForm.controls['quantidade'].invalid &&(prodForm.controls['quantidade'].dirty || prodForm.controls['quantidade'].touched)" class="alert alert-danger">Campo Obrigatorio</div>
+          <div class="form-group">
+            <button (click)= "adicionar(nome.value,preco.value,quantidade.value)" [disabled]="prodForm.pristine || prodForm.invalid" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
