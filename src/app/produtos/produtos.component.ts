@@ -11,7 +11,7 @@ import { Produto} from './produto'
 
 export class ProdutosComponent implements OnInit {
 
-  produtos: Produto[];
+  produtos: {};
   constructor(private  produtoService: ProdutoService) { }
 
   ngOnInit() {
